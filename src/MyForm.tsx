@@ -1,6 +1,7 @@
-import { Button, TextField } from '@material-ui/core';
-import { Form, Formik } from 'formik';
+import { Button } from '@material-ui/core';
+import { Field, Form, Formik } from 'formik';
 import * as React from 'react';
+import { MyField } from './MyField';
 
 interface Values {
   firstName: string;
@@ -20,33 +21,30 @@ export const MyForm: React.FC<Props> = ({ onSubmit }) => {
         onSubmit(values);
       }}
     >
-      {({ values, handleChange, handleBlur }) => (
+      {({ values }) => (
         <Form>
           <div>
-            <TextField
-              placeholder="first name"
+            <Field
               name="firstName"
-              value={values.firstName}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              placeholder="first name"
+              label="first name"
+              component={MyField}
             />
           </div>
           <div>
-            <TextField
-              placeholder="last name"
+            <Field
               name="lastName"
-              value={values.lastName}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              placeholder="last name"
+              label="last name"
+              component={MyField}
             />
           </div>
           <div>
-            <TextField
-              placeholder="email"
+            <Field
               name="email"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              placeholder="email"
+              label="email"
+              component={MyField}
             />
           </div>
           <Button type="submit">submit</Button>
